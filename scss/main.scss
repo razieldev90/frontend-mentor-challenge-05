@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+$ff: 'Rubik', sans-serif;
+$fw-normal: 400;
+$fw-bold: 500;
+
+$desktop: 768px;
+
+@mixin mediaMin($bp){
+  @media all and (min-width: #{$bp}){
+    @content;
+  }
+}
+
+:root{
+  --primary-blue: hsl(231, 69%, 60%);
+  --primary-red: hsl(0, 94%, 66%);
+  --grayish-blue: hsl(229, 8%, 60%);
+  --dark-blue: hsl(229, 31%, 21%);
+  --link-color: hsl(229, 8%, 60%);
+  --body-fs: 18px;
+
+}
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html{
+  box-sizing: border-box;
+}
+body{
+  font-family: $ff;
+  font-weight: 100;
+  font-size: var(--body-fs);
+  color: var(--grayish-blue);
+}
+
+.wrapper{ 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+//  ##########
+//  NAVIGATION
+//  ##########
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  box-shadow: none;
+  background: rgb(255, 255, 255);
+  padding: 2rem;
+
+  position: sticky;
+  top: 0;
+
+  &__bar{
+    list-style: none;
+    display: none;
+
+    @include mediaMin($desktop){
+      display: flex;
+    }
+  }
+
+  &__item{
+    padding: 0 1rem;
+
+    &:not(:last-of-type)::after{
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--primary-red);;
+      transform: scaleX(0);
+      transition: transform 0.25s ease-in-out;
+    }
+
+    &:hover::after{
+      transform: scaleX(1);
+    }
+  }
+
+  &__link{
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+
+    &:hover{
+      color: var(--primary-red);
+    }
+
+    &--red{
+      padding: 0.5rem 2rem;
+      color: #fff;
+      background: var(--primary-red);
+      border: 1px solid var(--primary-red);
+      border-radius: 5px;
+
+      &:hover{
+        color: var(--primary-red);
+        background: #fff;
+      }
+    }
+  }
+
+  &__toggle{
+    width: 18px;
+    height: 15px;
+    background: url('../images/icon-hamburger.svg') no-repeat;
+    cursor: pointer;
+
+    @include mediaMin($desktop){
+      display: none;
+    }
+  }
+}
