@@ -1,3 +1,15 @@
+%btn{
+  cursor: pointer;
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.25s ease-in-out;
+  &:hover{
+    opacity: 0.9;
+  }
+}
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,400&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
 
@@ -52,6 +64,16 @@ img{
   margin: 0 auto;
 }
 
+// COMMON STYLES
+[class$="__title"]{
+  color: var(--dark-blue);
+}
+
+[class$='__description']{
+  font-size: 1.1rem;
+  padding: 0 4rem;
+}
+
 //  ##########
 //  NAVIGATION
 //  ##########
@@ -63,6 +85,7 @@ img{
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
+  z-index: 1;
   
   @include mediaMin($desktop){
     padding: 2rem;
@@ -139,15 +162,7 @@ img{
   }
 }
 
-// COMMON STYLES
-[class$="__title"]{
-  color: var(--dark-blue);
-}
 
-[class$='__description']{
-  font-size: 1.1rem;
-  padding: 0 4rem;
-}
 //  ##########
 //    HEADER
 //  ##########
@@ -211,11 +226,10 @@ img{
   }
 
   &__btn{
+    @extend %btn;
     --link-color: #5e5e5e;
     
     padding: 0.8rem;
-    border-radius: 5px;
-    text-decoration: none;
     box-shadow: 0 0 10px var(--grayish-blue);
     font-size: 0.9rem;
     
@@ -344,11 +358,88 @@ img{
     align-self: stretch;
   }
   &__cta{
-    cursor: pointer;
-    background: var(--primary-blue);
-    color: #fff;
-    padding: 0.75rem 2rem;
-    border-radius: 5px;
+    @extend %btn;
     font-size: 1rem;
+  }
+}
+
+//  ###########
+//  SECTION FAQ
+//  ###########
+.faq{
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+
+  @include mediaMin($desktop){
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  &__title{
+    text-align: center;
+  }
+
+  &__description{
+    text-align: center;
+    margin: 2rem 0
+  }
+
+
+  &__box{
+    position: relative;
+  }
+
+  &__question{
+    color: var(--grayish-blue);
+    font-weight: $fw-normal;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+
+    &:hover{
+      color: var(--primary-red);
+    }
+
+    &::after{
+      content: '';
+      background-image: url('../images/icon-arrow.svg');
+      display: inline-block;
+      width: 18px;
+      height: 12px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    &.active{
+      color: var(--primary-red);
+
+      &::after{
+        content: '';
+        transform: rotateX(180deg);
+      }
+    }
+  }
+  &__answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+    font-size: 1.1rem;
+    font-weight: normal;
+    line-height: 2.5;
+    margin: 0.5rem 0;
+    border-bottom: 1px solid var(--grayish-blue);
+
+    &.show{
+      max-height: 350px;
+    }
+  }
+
+  &__btn{
+    @extend %btn;
+    margin-top: 2rem;
+    align-self: center;
   }
 }
