@@ -139,6 +139,15 @@ img{
   }
 }
 
+// COMMON STYLES
+[class$="__title"]{
+  color: var(--dark-blue);
+}
+
+[class$='__description']{
+  font-size: 1.1rem;
+  padding: 0 4rem;
+}
 //  ##########
 //    HEADER
 //  ##########
@@ -189,7 +198,6 @@ img{
 
   &__title{
     line-height: 1.3;
-    color: var(--dark-blue);
     font-weight: $fw-normal;
   }
 
@@ -224,5 +232,123 @@ img{
       color: var(--link-color);
       background: #f2f2f2;
     }
+  }
+}
+
+//  ########
+//  FEATURES
+//  ########
+.features{
+  text-align: center;
+  padding: 0 2rem;
+
+  &__description{
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+}
+
+.tabs{
+  
+  &__control{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn{
+    text-decoration: none;
+    color: var(--grayish-blue);
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--grayish-blue);
+
+    &:last-child{
+      border-bottom: 1px solid var(--grayish-blue);
+    }
+
+    &:hover{
+      color: var(--dark-blue);
+    }
+  }
+}
+
+//  ################
+//  SECTION DOWNLOAD
+//  ################
+.download{
+  display: flex;
+  flex-direction: column;
+  margin: 5rem 0;
+  text-align: center;
+  align-items: center;
+
+  &__title,
+  &__description{
+    flex: 100%;
+  }
+  
+  @include mediaMin($desktop){
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 5rem;
+  }
+
+}
+
+//  #####
+//  CARDS
+//  #####
+.card{
+  margin: 3rem auto;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-align: center;
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+  @include mediaMin($desktop){
+    flex: 0 0 25%;
+
+    @for $i from 1 through 3{
+      &:nth-of-type(#{$i}){
+        transform: translateY(($i * 3) + rem);
+      }
+    } 
+  }
+
+  &:hover{
+    box-shadow: 0 15px 25px var(--grayish-blue);
+  }
+
+  &__header{
+    padding-top: 3rem;
+  }
+  &__title{
+    font-size: 1.25rem;
+    font-weight: $fw-bold;
+  }
+  &__description{
+    font-size: 0.9rem;
+  }
+  &__body{
+    padding: 2rem 0;
+  }
+  &__footer{
+    padding: 1rem 0;
+  }
+  &__divider{
+    align-self: stretch;
+  }
+  &__cta{
+    cursor: pointer;
+    background: var(--primary-blue);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
   }
 }
