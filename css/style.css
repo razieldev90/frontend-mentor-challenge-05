@@ -22,14 +22,22 @@ html {
 }
 
 body {
+  width: 100%;
+  line-height: 1.6;
   font-family: "Rubik", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   font-size: var(--body-fs);
   color: var(--grayish-blue);
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -37,12 +45,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  box-shadow: none;
-  background: white;
-  padding: 2rem;
+  background: #fff;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
+}
+@media all and (min-width: 768px) {
+  .nav {
+    padding: 2rem;
+  }
+}
+.nav__logo {
+  display: flex;
 }
 .nav__bar {
   list-style: none;
@@ -102,6 +116,86 @@ body {
   .nav__toggle {
     display: none;
   }
+}
+
+.header {
+  margin: 3rem 0 10rem 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+@media all and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+}
+.header__info {
+  padding: 0 2rem;
+}
+.header__img {
+  position: relative;
+}
+.header__img::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 20%;
+  border-top-left-radius: 35%;
+  border-bottom-left-radius: 25%;
+  display: block;
+  background: var(--primary-blue);
+  height: 75%;
+  width: 100%;
+}
+@media all and (min-width: 768px) {
+  .header__img::after {
+    left: 35%;
+  }
+}
+@media all and (min-width: 768px) {
+  .header__img {
+    flex: 100%;
+    order: 1;
+  }
+}
+.header__title {
+  line-height: 1.3;
+  color: var(--dark-blue);
+  font-weight: 400;
+}
+.header__description {
+  font-weight: 400;
+  margin: 2rem 1rem;
+}
+@media all and (min-width: 768px) {
+  .header__description {
+    margin: 2rem 0;
+  }
+}
+.header__btn {
+  --link-color: #5e5e5e;
+  padding: 0.8rem;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 0 10px var(--grayish-blue);
+  font-size: 0.9rem;
+}
+@media all and (min-width: 768px) {
+  .header__btn {
+    padding: 1rem 1.5rem;
+  }
+}
+.header__btn:first-child {
+  color: #fff;
+  background: var(--primary-blue);
+}
+.header__btn:last-child {
+  margin-left: 0.5rem;
+  color: var(--link-color);
+  background: #f2f2f2;
 }
 
 /*# sourceMappingURL=style.css.map */
