@@ -43,7 +43,6 @@ body {
   font-weight: 400;
   font-size: var(--body-fs);
   color: var(--grayish-blue);
-  overflow-x: hidden;
 }
 
 img {
@@ -54,18 +53,20 @@ img {
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 [class$=__title] {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--dark-blue);
   font-weight: 500;
   line-height: 1.2;
 }
 
 [class$=__description] {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
+  margin: 2rem 0;
 }
 
 [class$=__info] {
@@ -121,7 +122,7 @@ img {
   padding: 0;
 }
 .nav.show .nav__logo {
-  filter: hue-rotate(150deg);
+  filter: invert(20%) brightness(150%) contrast(100%);
   order: 1;
 }
 .nav.show .nav__toggle {
@@ -259,7 +260,6 @@ img {
 }
 .header__description {
   font-weight: 400;
-  margin: 2rem 0;
 }
 @media all and (min-width: 43em) {
   .header__description {
@@ -290,10 +290,6 @@ img {
 .features {
   text-align: center;
   padding: 0 2rem;
-}
-.features__description {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
 }
 
 .tabs__control {
@@ -330,7 +326,7 @@ img {
   }
 }
 .download__title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -342,7 +338,7 @@ img {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   text-align: center;
-  box-shadow: 0 10px 10px var(--grayish-blue);
+  box-shadow: 0 10px 10px #ccc;
   transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 @media all and (min-width: 43em) {
@@ -372,9 +368,10 @@ img {
 }
 .card__description {
   font-size: 0.9rem;
+  margin: 0.5rem 0;
 }
 .card__body {
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 .card__footer {
   padding: 1rem 0;
@@ -387,7 +384,7 @@ img {
 }
 
 .faq {
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -402,7 +399,6 @@ img {
 }
 .faq__description {
   text-align: center;
-  margin: 2rem 0;
 }
 .faq__box {
   position: relative;
@@ -440,14 +436,15 @@ img {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease-in-out;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: normal;
-  line-height: 2.5;
+  line-height: 2;
   margin: 0.5rem 0;
-  border-bottom: 1px solid var(--grayish-blue);
+  border-bottom: 1px solid #ccc;
 }
 .faq__answer.show {
   max-height: 350px;
+  padding-bottom: 1rem;
 }
 .faq__btn {
   margin-top: 2rem;
@@ -462,7 +459,7 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 2.5rem 1rem;
 }
 .contact__title {
   color: #fff;
@@ -493,6 +490,47 @@ img {
   background: var(--primary-red);
   border: none;
   font-weight: 700;
+}
+
+.footer {
+  background: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+.footer__logo {
+  filter: invert(20%) brightness(150%) contrast(100%);
+}
+.footer__list {
+  list-style: none;
+  text-align: center;
+  margin: 1rem 0;
+}
+.footer__item {
+  margin: 1rem 0;
+}
+.footer__link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+.footer__social {
+  display: flex;
+}
+.footer__social > img {
+  margin: 1rem;
+}
+
+.attribution {
+  margin-top: 0.5rem;
+  font-size: 12px;
+  text-align: center;
+}
+.attribution a {
+  color: #6678c2;
 }
 
 /*# sourceMappingURL=style.css.map */
