@@ -27,6 +27,10 @@
         <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
         <li class="nav__item"><a href="#" class="nav__link nav__link--red">Login</a></li>
       </ul>
+      <div class="nav__social">
+        <a href="#" class=""><img src="./images/icon-facebook.svg" alt="facebbok"></a>
+        <a href="#" class=""><img src="./images/icon-twitter.svg" alt="twitter"></a>
+      </div>
       <span class="nav__toggle"></span>
     </nav>
 
@@ -98,12 +102,14 @@
 
     <section class="download">
 
-      <h1 class="download__title">Download the extension</h1>
-      
-      <p class="download__description">
-        We’ve got more browsers in the pipeline. Please do let us know if you’ve 
-        got a favourite you’d like us to prioritize.
-      </p>
+      <div class="download__info">
+        <h1 class="download__title">Download the extension</h1>
+        
+        <p class="download__description">
+          We’ve got more browsers in the pipeline. Please do let us know if you’ve 
+          got a favourite you’d like us to prioritize.
+        </p>
+      </div>
 
       <div class="card">
         <div class="card__header">
@@ -214,16 +220,21 @@
       
     </section>
 
-    35,000+ already joined
+    <section id="contact" class="contact">
+      <p class="contact__description">35,000+ already joined</p>
+      <h1 class="contact__title">Stay up-to-date with what we’re doing</h1>
+      <form class="contact__form">
+        <input class="contact__input" type="email" name="email" id="email" placeholder="Enter your email address">
+        <input type="submit" name="submit" value="Contact Us" class="contact__btn">
+      </form>
+    </section>
 
-    Stay up-to-date with what we’re doing
-
-    Contact Us
-
-    Features
-    Pricing
-    Contact
-
+    <footer class="footer">
+      Features
+      Pricing
+      Contact
+    </footer>
+      
     <footer>
       <p class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
