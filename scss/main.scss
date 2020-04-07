@@ -12,20 +12,59 @@ $small: 43em;     // 688px
 $medium: 62em;    // 992px
 $large: 82em;     // 1312px
 
+@keyframes slideInRight{
+  0%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft{
+  0%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes slideInTop{
+  0%{
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 %btn{
   cursor: pointer;
   background: var(--primary-blue);
   color: #fff;
   padding: 0.75rem 2rem;
+  border: 2px solid transparent;
   border-radius: 5px;
   text-decoration: none;
-  transition: opacity 0.25s ease-in-out;
   font-weight: $fw-bold;
   font-size: 0.9rem;
-  &:hover{
-    opacity: 0.9;
-  }
+  transition: background 0.25s ease-in-out, border 0.25s ease-in-out;
 }
 
 
@@ -35,8 +74,6 @@ $large: 82em;     // 1312px
   }
 }
 
-
-
 :root{
   --primary-blue: hsl(231, 69%, 60%);
   --primary-red: hsl(0, 94%, 66%);
@@ -44,7 +81,6 @@ $large: 82em;     // 1312px
   --dark-blue: hsl(229, 31%, 21%);
   --link-color: hsl(229, 8%, 60%);
   --body-fs: 18px;
-
 }
 
 *,
@@ -59,11 +95,13 @@ html{
 }
 body{
   width: 100%;
+  height: 100vh;
   line-height: 1.6;
   font-family: $ff;
   font-weight: $fw-normal;
   font-size: var(--body-fs);
   color: var(--grayish-blue);
+  overflow-x: hidden;
 }
 img{
   width: 100%;
@@ -73,6 +111,10 @@ img{
   max-width: 1440px;
   margin: 0 auto;
   overflow-x: hidden;
+
+  @include mediaMin($small){
+    overflow-x: visible;
+  }
 }
 
 // COMMON STYLES
@@ -81,12 +123,20 @@ img{
   color: var(--dark-blue);
   font-weight: $fw-bold;
   line-height: 1.2;
+
+  @include mediaMin($small){
+    font-size: 2rem;
+  }
 }
 
 [class$='__description']{
   font-size: 0.9rem;
   font-weight: $fw-normal;
   margin: 2rem 0;
+
+  @include mediaMin($small){
+    font-size: 1.2rem;
+  }
 }
 [class$='__info']{
   padding: 0 2rem;
@@ -102,8 +152,6 @@ img{
   justify-content: space-between;
   background: #fff;
   padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
   z-index: 1;
 
   &.show{
@@ -129,7 +177,6 @@ img{
     
     & .nav__item{
       &:hover::after{
-        
         transform: scaleX(0);
       }
     }
@@ -137,7 +184,7 @@ img{
     & .nav__link{
       margin-top: 1rem;
       width: 100%;
-      font-size: 2rem;
+      font-size: 1.5rem;
       border-top: 1px solid var(--grayish-blue);
 
       &:hover{
@@ -147,7 +194,7 @@ img{
       &--red{
         background: var(--dark-blue);
         border-color: #fff;
-        padding: 0;
+        padding: 0.25rem 0;
       }
     }
 
@@ -277,12 +324,9 @@ img{
 
   }
 
-  &__info{
-
-  }
-
   &__img{
     position: relative;
+    animation: fadeIn 1s ease-in-out;
 
     &::after{
       content: '';
@@ -296,6 +340,7 @@ img{
       background: var(--primary-blue);
       height: 75%;
       width: 100%;
+      animation: slideInRight 0.5s linear;
 
       @include mediaMin($small){
         left: 35%;
@@ -310,46 +355,75 @@ img{
 
   &__title{
     margin-top: 3rem;
+    animation: slideInTop 0.5s ease-in-out;
+
+    @include mediaMin($small){
+      font-size: 4rem;
+    }
   }
 
   &__description{
     font-weight: $fw-normal;
+    animation: slideInLeft 0.5s ease-in-out;
 
     @include mediaMin($small){
-      margin: 2rem 0;
+      margin: 3rem 0;
+      font-size: 1.5rem;
     }
   }
 
   &__btn{
     @extend %btn;
-    --link-color: #5e5e5e;
-    
+    --link-color: #5e5e5e;    
+    opacity: 0;
     padding: 0.8rem;
     box-shadow: 0 0 10px var(--grayish-blue);
-    font-size: 0.9rem;
-    
+    font-size: 0.75rem;
+    animation: fadeIn 0.5s ease-in-out forwards;
+
     @include mediaMin($small){
       padding: 1rem 1.5rem;
+      font-size: 0.9rem;
     }
+
 
     &:first-child{
       color: #fff;
       background: var(--primary-blue);
+      animation-delay: 0.5s;
+
+      &:hover{
+        background: #fff;
+        border-color: var(--primary-blue);
+        color: var(--primary-blue);
+      }  
     }
     &:last-child{
       margin-left: 0.5rem;
       color: var(--link-color);
       background: #f2f2f2;
+      animation-delay: 0.75s;
+
+      &:hover{
+        background: #fff;
+        border-color: var(--dark-blue);
+      }
     }
   }
 }
-
 //  ########
 //  FEATURES
 //  ########
 .features{
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 1.7rem;
+
+  &__description{
+    @include mediaMin($small){
+      margin: 2rem auto;
+      max-width: 50%;
+    }
+  }
 }
 
 .tabs{
@@ -357,28 +431,107 @@ img{
   &__control{
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
+    
+    @include mediaMin($small){
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &::after{
+      content: '';
+      width: 90%;
+      background: #ddd;
+
+      @include mediaMin($small){
+        height: 1px;
+      }
+    }
   }
 
   &__btn{
     text-decoration: none;
     color: var(--grayish-blue);
     padding: 1rem 0;
-    border-top: 1px solid #ddd;
     font-size: 1rem;
-    font-weight: $fw-normal;
+    border-top: 1px solid #ddd;
+
     &:last-child{
       border-bottom: 1px solid #ddd;
+      @include mediaMin($small){
+        border: none;
+      }
     }
 
+    @include mediaMin($small){
+      border: none;
+      padding: 1rem 3rem;
+    }
     &:hover{
       color: var(--dark-blue);
+
     }
+    &.active{
+      color: var(--primary-red);
+      border-bottom: 4px solid var(--primary-red);
+    }
+  }
+
+  &__content{
+    display: none;
+    &.active{
+      display: flex;
+      flex-direction: column;
+
+      @include mediaMin($small){
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__info{
+    animation: slideInRight 0.5s ease-in-out;
+
+    @include mediaMin($medium){
+      text-align: left;
+      flex: 50%;
+      margin-left: 5rem;
+      max-width: 50%;
+    }
+  }
+
+  &__img{
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+
+    &::after{
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: -10%;
+      left: -70%;
+      border-top-right-radius: 35%;
+      border-bottom-right-radius: 25%;
+      display: block;
+      background: var(--primary-blue);
+      height: 75%;
+      width: 130%;
+      animation: slideInLeft 0.5s linear;
+    }
+  }
+
+  &__title{
+    margin-top: 3rem;
+  }
+  &__cta{
+    @extend %btn;
   }
 }
 
-//  ################
-//  SECTION DOWNLOAD
-//  ################
+//  ########
+//  DOWNLOAD
+//  ########
 .download{
   display: flex;
   flex-direction: column;
@@ -390,37 +543,51 @@ img{
     justify-content: center;
     flex-wrap: wrap;
     padding: 0 5rem;
+    margin: 10rem 0;
   }
 
+  &__info{
+    @include mediaMin($small){
+      margin: 0 15rem;
+    }
+  }
   &__title{
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
+  &__cards{
+    display: flex;
+    flex-direction: column;
 
+    @include mediaMin($small){
+      flex-direction: row;
+      width: 100%;
+    }
+  }
 }
 
 //  #####
 //  CARDS
 //  #####
 .card{
-  margin: 3rem auto;
+  margin: 1.5rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  text-align: center;
   box-shadow: 0 10px 10px #ccc;
   transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
   
   @include mediaMin($small){
-    flex: 0 0 25%;
     box-shadow: 0 0 0 var(--grayish-blue);
+    margin: 0 auto;
 
 
-    @for $i from 1 through 3{
-      &:nth-of-type(#{$i}){
-        transform: translateY(($i * 3) + rem);
+
+    @for $i from 0 through 3{
+      &:nth-child(#{$i}){
+        transform: translateY(($i * 1.5) + rem);
       }
     } 
     &:hover{
@@ -452,6 +619,12 @@ img{
   &__cta{
     @extend %btn;
     font-size: 0.9rem;
+
+    &:hover{
+      background: #fff;
+      border: 2px solid var(--primary-blue);
+      color: var(--primary-blue);
+    }
   }
 }
 
@@ -464,8 +637,8 @@ img{
   flex-direction: column;
 
   @include mediaMin($small){
-    max-width: 60%;
-    margin: 0 auto;
+    max-width: 50%;
+    margin: 5rem auto;
   }
 
   &__title{
@@ -474,6 +647,11 @@ img{
 
   &__description{
     text-align: center;
+   
+    @include mediaMin($small){
+      margin: 2rem auto;
+      max-width: 50%;
+    }
   }
 
 
@@ -491,6 +669,10 @@ img{
     cursor: pointer;
     padding: 1rem 0;
 
+    @include mediaMin($small){
+      font-size: 1.2rem;
+    }
+
     &:hover{
       color: var(--primary-red);
     }
@@ -501,12 +683,10 @@ img{
       display: inline-block;
       width: 18px;
       height: 12px;
-      transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+      transition: transform 0.5s ease-out, filter 0.5s ease-in-out;
     }
 
     &.active{
-      color: var(--primary-red);
-
       &::after{
         content: '';
         transform: rotateX(180deg);
@@ -518,12 +698,16 @@ img{
   &__answer{
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.25s ease-in-out;
     font-size: 0.9rem;
     font-weight: normal;
     line-height: 2;
     margin: 0.5rem 0;
     border-bottom: 1px solid #ccc;
+    transition: max-height 0.5s ease-out;
+
+    @include mediaMin($small){
+      font-size: 1.1rem;
+    }
 
     &.show{
       max-height: 350px;
@@ -567,23 +751,60 @@ img{
     display: flex;
     flex-direction: column;
     margin: 1rem;
+    position: relative;
+
+    @include mediaMin($small){
+      flex-direction: row;
+      align-self: center;
+    }
   }
   &__input{
     padding: 1rem;
     font-size: 0.9rem;
     border-radius: 5px;
     border: none;
+    z-index: 1;
+    &.error{
+      border: 1px solid var(--primary-red);
+    }
+    @include mediaMin($small){
+      padding: 0.75rem 1rem;
+    }
 
     &::placeholder{
       color: var(--grayish-blue);
     }
   }
+
+  &__error{
+    background: var(--primary-red);
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    display: flex;
+    padding-left: 1rem;
+    font-size: 0.75rem;
+    width: 59%;
+  }
+
   &__btn{
     @extend %btn;
     margin-top: 1rem;
     background: var(--primary-red);
-    border: none;
+    border: 2px solid transparent;
     font-weight: $fw-bolder;
+
+
+    @include mediaMin($small){
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+
+    &:hover{
+      background: #fff;
+      border: 2px solid var(--primary-red);
+      color: var(--primary-red);
+    }
   }
 }
 
@@ -597,16 +818,40 @@ img{
   align-items: center;
   padding: 2rem 0;
 
+  @include mediaMin($medium){
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
   &__logo{
     filter: invert(20%) brightness(150%) contrast(100%);
+    @include mediaMin($medium){
+      margin-left: 15rem;
+    }
   }
   &__list{
     list-style: none;
     text-align: center;
     margin: 1rem 0;
+
+    @include mediaMin($small){
+      display: flex;
+    }
+
+    @include mediaMin($medium){
+      display: flex;
+      margin-left: 3rem;
+      margin-right: auto;
+    }
   }
   &__item{
     margin: 1rem 0;
+
+    @include mediaMin($small){
+      margin-left: 2rem;
+    }
   }
   &__link{
     text-decoration: none;
@@ -614,23 +859,22 @@ img{
     font-size: 1.2rem;
     letter-spacing: 2px;
     font-weight: 400;
+
+    &:hover{
+      color: var(--primary-red);
+    }
   }
   &__social{
     display: flex;
 
-    > img{
-      margin: 1rem
+    @include mediaMin($medium){
+      margin-left: auto;
+      margin-right: 5rem;
     }
-  }
-}
 
-
-.attribution { 
-  margin-top: 0.5rem;
-  font-size: 12px;
-  text-align: center;
-
-  a { 
-    color: hsl(228, 43%, 58%);
+    > img{
+      margin: 0 1rem;
+      cursor: pointer;
+    }
   }
 }

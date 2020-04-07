@@ -62,33 +62,66 @@
 
       <div class="tabs">
         <div class="tabs__control">
-          <a href="#" class="tabs__btn">Simple Bookmarking</a>
-          <a href="#" class="tabs__btn">Speedy Searching</a>
-          <a href="#" class="tabs__btn">Easy Sharing</a>          
+          <a href="#" class="tabs__btn active" data-target="tab1">Simple Bookmarking</a>
+          <a href="#" class="tabs__btn" data-target="tab2">Speedy Searching</a>
+          <a href="#" class="tabs__btn" data-target="tab3">Easy Sharing</a>          
         </div>
+
+        <div class="tabs__content active" id="tab1">
+
+          <div class="tabs__img">
+            <img src="./images/illustration-features-tab-1.svg" alt="tab1-img">
+          </div>
+
+          <div class="tabs__info">
+
+            <h2 class="tabs__title">Bookmark in one click</h2>
+            
+            <p class="tabs__description">
+              Organize your bookmarks however you like. Our simple drag-and-drop interface 
+              gives you complete control over how you manage your favourite sites.
+            </p>
+            
+            <a href="#" class="tabs__cta">More Info</a>
+          </div>
+        </div>
+
+        <div class="tabs__content" id="tab2">
+        
+          <div class="tabs__img">
+            <img src="./images/illustration-features-tab-2.svg" alt="tab2-img">
+          </div>
+          
+          <div class="tabs__info">
+            <h2 class="tabs__title">Intelligent search</h2>
+
+            <p class="tabs__description">
+              powerful search feature will help you find saved sites in no time at all. 
+              No need to trawl through all of your bookmarks.
+            </p>
+            <a href="#" class="tabs__cta">More Info</a>
+          </div>
+        </div>
+
+        <div class="tabs__content" id="tab3">
+
+          <div class="tabs__img">
+            <img src="./images/illustration-features-tab-3.svg" alt="tab3-img">
+          </div>
+
+          <div class="tabs__info">
+
+            <h2 class="tabs__title">Share your bookmarks</h2>
+            
+            <p class="tabs__description">
+              Easily share your bookmarks and collections with others. Create a shareable 
+              link that you can send at the click of a button.
+            </p>
+            <a href="#" class="tabs__cta">More Info</a>
+          </div>
+        </div>
+
       </div>
-
-      Bookmark in one click
-
-      Organize your bookmarks however you like. Our simple drag-and-drop interface 
-      gives you complete control over how you manage your favourite sites.
-
-      More Info
-
-      Intelligent search
-
-      Our powerful search feature will help you find saved sites in no time at all. 
-      No need to trawl through all of your bookmarks.
-
-      More Info
-
-      Share your bookmarks
-
-      Easily share your bookmarks and collections with others. Create a shareable 
-      link that you can send at the click of a button.
-
-      More Info
-
 
 
     </section>
@@ -105,54 +138,57 @@
         </p>
       </div>
 
-      <div class="card">
-        <div class="card__header">
-          <img class="card__img" src="./images/logo-chrome.svg" alt="logo-chrome">
-        </div>
-        <div class="card__body">
-          <h2 class="card__title">Add to Chrome</h2>
-          <p class="card__description">Minimum version 62</p>
-        </div>
-        <div class="card__divider">
-          <img src="./images/bg-dots.svg" alt="dots">
-        </div>
-        <div class="card__footer">
-          <div class="card__cta">Add & Install Extension</div>
-        </div>
-      </div>
+      <div class="download__cards">
 
-      <div class="card">
-        <div class="card__header">
-          <img class="card__img" src="./images/logo-firefox.svg" alt="logo-firefox">
+        <div class="card">
+          <div class="card__header">
+            <img class="card__img" src="./images/logo-chrome.svg" alt="logo-chrome">
+          </div>
+          <div class="card__body">
+            <h2 class="card__title">Add to Chrome</h2>
+            <p class="card__description">Minimum version 62</p>
+          </div>
+          <div class="card__divider">
+            <img src="./images/bg-dots.svg" alt="dots">
+          </div>
+          <div class="card__footer">
+            <div class="card__cta">Add & Install Extension</div>
+          </div>
         </div>
-        <div class="card__body">
-          <h2 class="card__title">Add to Firefox</h2>
-          <p class="card__description">Minimum version 55</p>
-        </div>
-        <div class="card__divider">
-          <img src="./images/bg-dots.svg" alt="dots">
-        </div>
-        <div class="card__footer">
-          <div class="card__cta">Add & Install Extension</div>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="card__header">
-          <img class="card__img" src="./images/logo-opera.svg" alt="logo-opera">
+        <div class="card">
+          <div class="card__header">
+            <img class="card__img" src="./images/logo-firefox.svg" alt="logo-firefox">
+          </div>
+          <div class="card__body">
+            <h2 class="card__title">Add to Firefox</h2>
+            <p class="card__description">Minimum version 55</p>
+          </div>
+          <div class="card__divider">
+            <img src="./images/bg-dots.svg" alt="dots">
+          </div>
+          <div class="card__footer">
+            <div class="card__cta">Add & Install Extension</div>
+          </div>
         </div>
-        <div class="card__body">
-          <h2 class="card__title">Add to Opera</h2>
-          <p class="card__description">Minimum version 46</p>
-        </div>
-        <div class="card__divider">
-          <img src="./images/bg-dots.svg" alt="dots">
-        </div>
-        <div class="card__footer">
-          <div class="card__cta">Add & Install Extension</div>
+
+        <div class="card">
+          <div class="card__header">
+            <img class="card__img" src="./images/logo-opera.svg" alt="logo-opera">
+          </div>
+          <div class="card__body">
+            <h2 class="card__title">Add to Opera</h2>
+            <p class="card__description">Minimum version 46</p>
+          </div>
+          <div class="card__divider">
+            <img src="./images/bg-dots.svg" alt="dots">
+          </div>
+          <div class="card__footer">
+            <div class="card__cta">Add & Install Extension</div>
+          </div>
         </div>
       </div>
-      
+        
     </section>
 
     <section class="faq">
@@ -213,41 +249,36 @@
       <a href="#" class="faq__btn">More Info</a>
       
     </section>
+  </div>
 
     <section id="contact" class="contact">
       <p class="contact__description">35,000+ already joined</p>
       <h1 class="contact__title">Stay up-to-date with what we’re doing</h1>
       <form class="contact__form">
         <input class="contact__input" type="email" name="email" id="email" placeholder="Enter your email address">
+        <small class="contact__error">Whoops, make sure it's an email</small>
         <input type="submit" name="submit" value="Contact Us" class="contact__btn">
       </form>
     </section>
 
-    <footer class="footer">
-      <div class="footer__logo">
-        <img src="./images/logo-bookmark.svg" alt="logo">
-      </div>
-      <ul class="footer__list">
-        <li class="footer__item"><a href="#" class="footer__link">Features</a></li>
-        <li class="footer__item"><a href="#" class="footer__link">Pricing</a></li>
-        <li class="footer__item"><a href="#" class="footer__link">Contact</a></li>
-      </ul>
-      <div class="footer__social">
-        <img src="./images/icon-facebook.svg" alt="facebook">
-        <img src="./images/icon-twitter.svg" alt="twitter">
-      </div>
-      
-      
-      
-      <p class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">RazielDev</a>.
-      </p>
-    </footer>
-      
 
-  </div>
 
+
+  <footer class="footer">
+    <div class="footer__logo">
+      <img src="./images/logo-bookmark.svg" alt="logo">
+    </div>
+    <ul class="footer__list">
+      <li class="footer__item"><a href="#" class="footer__link">Features</a></li>
+      <li class="footer__item"><a href="#" class="footer__link">Pricing</a></li>
+      <li class="footer__item"><a href="#" class="footer__link">Contact</a></li>
+    </ul>
+    <div class="footer__social">
+      <img src="./images/icon-facebook.svg" alt="facebook">
+      <img src="./images/icon-twitter.svg" alt="twitter">
+    </div>
+  </footer>
+  
   <script src="./js/script.js"></script>
 
 </body>
