@@ -96,7 +96,7 @@
             <h2 class="tabs__title">Intelligent search</h2>
 
             <p class="tabs__description">
-              powerful search feature will help you find saved sites in no time at all. 
+              Powerful search feature will help you find saved sites in no time at all. 
               No need to trawl through all of your bookmarks.
             </p>
             <a href="#" class="tabs__cta">More Info</a>
@@ -254,9 +254,12 @@
     <section id="contact" class="contact">
       <p class="contact__description">35,000+ already joined</p>
       <h1 class="contact__title">Stay up-to-date with what we’re doing</h1>
-      <form class="contact__form">
-        <input class="contact__input" type="email" name="email" id="email" placeholder="Enter your email address">
-        <small class="contact__error">Whoops, make sure it's an email</small>
+      <form id="form" class="contact__form" novalidate>
+        <div class="contact__box">
+          <input class="contact__input" type="email" name="email" id="email" placeholder="Enter your email address" >
+          <span class="icon-error"></span>
+          <small class="msg-error"></small>
+        </div>
         <input type="submit" name="submit" value="Contact Us" class="contact__btn">
       </form>
     </section>
@@ -278,6 +281,11 @@
       <img src="./images/icon-twitter.svg" alt="twitter">
     </div>
   </footer>
+
+  <p class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">RazielDev</a>.
+  </p>
   
   <script src="./js/script.js"></script>
 

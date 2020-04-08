@@ -93,7 +93,7 @@ img {
   margin: 0 auto;
   overflow-x: hidden;
 }
-@media all and (min-width: 43em) {
+@media all and (min-width: 82em) {
   .wrapper {
     overflow-x: visible;
   }
@@ -107,6 +107,11 @@ img {
 }
 @media all and (min-width: 43em) {
   [class$=__title] {
+    font-size: 1.8rem;
+  }
+}
+@media all and (min-width: 62em) {
+  [class$=__title] {
     font-size: 2rem;
   }
 }
@@ -118,7 +123,12 @@ img {
 }
 @media all and (min-width: 43em) {
   [class$=__description] {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+}
+@media all and (min-width: 62em) {
+  [class$=__description] {
+    font-size: 1.15rem;
   }
 }
 
@@ -295,7 +305,7 @@ img {
   background: var(--primary-blue);
   height: 75%;
   width: 100%;
-  animation: slideInRight 0.5s linear;
+  animation: slideInRight 0.75s ease;
 }
 @media all and (min-width: 43em) {
   .header__img::after {
@@ -310,18 +320,28 @@ img {
 }
 .header__title {
   margin-top: 3rem;
-  animation: slideInTop 0.5s ease-in-out;
+  animation: slideInTop 0.75s ease-in-out;
 }
 @media all and (min-width: 43em) {
+  .header__title {
+    font-size: 2rem;
+  }
+}
+@media all and (min-width: 62em) {
   .header__title {
     font-size: 4rem;
   }
 }
 .header__description {
   font-weight: 400;
-  animation: slideInLeft 0.5s ease-in-out;
+  animation: slideInLeft 1s ease-in-out;
 }
 @media all and (min-width: 43em) {
+  .header__description {
+    font-size: 1rem;
+  }
+}
+@media all and (min-width: 62em) {
   .header__description {
     margin: 3rem 0;
     font-size: 1.5rem;
@@ -344,7 +364,7 @@ img {
 .header__btn:first-child {
   color: #fff;
   background: var(--primary-blue);
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 .header__btn:first-child:hover {
   background: #fff;
@@ -355,7 +375,7 @@ img {
   margin-left: 0.5rem;
   color: var(--link-color);
   background: #f2f2f2;
-  animation-delay: 0.75s;
+  animation-delay: 1.25s;
 }
 .header__btn:last-child:hover {
   background: #fff;
@@ -433,10 +453,17 @@ img {
 @media all and (min-width: 43em) {
   .tabs__content.active {
     flex-direction: row;
+    align-items: center;
   }
 }
 .tabs__info {
   animation: slideInRight 0.5s ease-in-out;
+}
+@media all and (min-width: 43em) {
+  .tabs__info {
+    text-align: right;
+    flex: 75%;
+  }
 }
 @media all and (min-width: 62em) {
   .tabs__info {
@@ -478,17 +505,26 @@ img {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 5rem;
+    padding: 0 2rem;
     margin: 10rem 0;
   }
 }
+@media all and (min-width: 62em) {
+  .download {
+    padding: 0 5rem;
+  }
+}
 @media all and (min-width: 43em) {
+  .download__info {
+    margin: 0 5rem;
+  }
+}
+@media all and (min-width: 62em) {
   .download__info {
     margin: 0 15rem;
   }
 }
 .download__title {
-  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 .download__cards {
@@ -521,13 +557,13 @@ img {
     transform: translateY(0rem);
   }
   .card:nth-child(1) {
-    transform: translateY(1.5rem);
+    transform: translateY(2rem);
   }
   .card:nth-child(2) {
-    transform: translateY(3rem);
+    transform: translateY(4rem);
   }
   .card:nth-child(3) {
-    transform: translateY(4.5rem);
+    transform: translateY(6rem);
   }
   .card:hover {
     box-shadow: 0 15px 25px var(--grayish-blue);
@@ -556,6 +592,11 @@ img {
 .card__cta {
   font-size: 0.9rem;
 }
+@media all and (min-width: 43em) {
+  .card__cta {
+    padding: 0.75rem 1.5rem;
+  }
+}
 .card__cta:hover {
   background: #fff;
   border: 2px solid var(--primary-blue);
@@ -569,8 +610,13 @@ img {
 }
 @media all and (min-width: 43em) {
   .faq {
-    max-width: 50%;
+    max-width: 75%;
     margin: 5rem auto;
+  }
+}
+@media all and (min-width: 62em) {
+  .faq {
+    max-width: 50%;
   }
 }
 .faq__title {
@@ -583,6 +629,11 @@ img {
   .faq__description {
     margin: 2rem auto;
     max-width: 50%;
+  }
+}
+@media all and (min-width: 43em) {
+  .faq__description {
+    max-width: 75%;
   }
 }
 .faq__box {
@@ -651,16 +702,26 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   padding: 2.5rem 1rem;
 }
 .contact__title {
   color: #fff;
-  font-size: 1.5rem;
   margin: 1rem 0;
+}
+@media all and (min-width: 43em) {
+  .contact__title {
+    max-width: 50%;
+  }
+}
+@media all and (min-width: 62em) {
+  .contact__title {
+    max-width: 25%;
+  }
 }
 .contact__description {
   letter-spacing: 5px;
-  font-size: 0.85rem;
   font-weight: 500;
 }
 .contact__form {
@@ -674,6 +735,41 @@ img {
     flex-direction: row;
     align-self: center;
   }
+}
+.contact__form.error .contact__box {
+  background: var(--primary-red);
+}
+.contact__form.error .icon-error {
+  display: inline;
+}
+.contact__form.error .msg-error {
+  display: block;
+}
+.contact__box {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 5px;
+}
+.contact__box .icon-error {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 5%;
+  top: 25%;
+  background: url("../images/icon-error.svg");
+  z-index: 1;
+  display: none;
+}
+.contact__box .msg-error {
+  display: none;
+  padding-top: 3px;
+  padding-left: 0.5rem;
+  font-size: 0.75rem;
+  text-align: left;
+  font-weight: 500;
+  font-style: italic;
 }
 .contact__input {
   padding: 1rem;
@@ -692,16 +788,6 @@ img {
 }
 .contact__input::placeholder {
   color: var(--grayish-blue);
-}
-.contact__error {
-  background: var(--primary-red);
-  position: absolute;
-  bottom: -1rem;
-  left: 0;
-  display: flex;
-  padding-left: 1rem;
-  font-size: 0.75rem;
-  width: 59%;
 }
 .contact__btn {
   margin-top: 1rem;
@@ -784,13 +870,21 @@ img {
 }
 @media all and (min-width: 62em) {
   .footer__social {
-    margin-left: auto;
-    margin-right: 5rem;
+    margin-right: 10rem;
   }
 }
 .footer__social > img {
   margin: 0 1rem;
   cursor: pointer;
+}
+
+.attribution {
+  font-size: 0.9rem;
+  text-align: center;
+  background: #1c365e;
+}
+.attribution a {
+  color: #5f96c8;
 }
 
 /*# sourceMappingURL=style.css.map */

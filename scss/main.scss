@@ -112,7 +112,7 @@ img{
   margin: 0 auto;
   overflow-x: hidden;
 
-  @include mediaMin($small){
+  @include mediaMin($large){
     overflow-x: visible;
   }
 }
@@ -125,6 +125,9 @@ img{
   line-height: 1.2;
 
   @include mediaMin($small){
+    font-size: 1.8rem;
+  }
+  @include mediaMin($medium){
     font-size: 2rem;
   }
 }
@@ -135,8 +138,12 @@ img{
   margin: 2rem 0;
 
   @include mediaMin($small){
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
+  @include mediaMin($medium){
+    font-size: 1.15rem;
+  }
+  
 }
 [class$='__info']{
   padding: 0 2rem;
@@ -340,7 +347,7 @@ img{
       background: var(--primary-blue);
       height: 75%;
       width: 100%;
-      animation: slideInRight 0.5s linear;
+      animation: slideInRight 0.75s ease;
 
       @include mediaMin($small){
         left: 35%;
@@ -355,18 +362,25 @@ img{
 
   &__title{
     margin-top: 3rem;
-    animation: slideInTop 0.5s ease-in-out;
+    animation: slideInTop 0.75s ease-in-out;
 
     @include mediaMin($small){
+      font-size: 2rem;
+    }
+    @include mediaMin($medium){
       font-size: 4rem;
     }
   }
 
   &__description{
     font-weight: $fw-normal;
-    animation: slideInLeft 0.5s ease-in-out;
+    animation: slideInLeft 1s ease-in-out;
 
     @include mediaMin($small){
+      font-size: 1rem;
+    }
+
+    @include mediaMin($medium){
       margin: 3rem 0;
       font-size: 1.5rem;
     }
@@ -390,7 +404,7 @@ img{
     &:first-child{
       color: #fff;
       background: var(--primary-blue);
-      animation-delay: 0.5s;
+      animation-delay: 01s;
 
       &:hover{
         background: #fff;
@@ -402,7 +416,7 @@ img{
       margin-left: 0.5rem;
       color: var(--link-color);
       background: #f2f2f2;
-      animation-delay: 0.75s;
+      animation-delay: 1.25s;
 
       &:hover{
         background: #fff;
@@ -486,12 +500,18 @@ img{
 
       @include mediaMin($small){
         flex-direction: row;
+        align-items: center;
       }
     }
   }
 
   &__info{
     animation: slideInRight 0.5s ease-in-out;
+
+    @include mediaMin($small){
+      text-align: right;
+      flex: 75%;
+    }
 
     @include mediaMin($medium){
       text-align: left;
@@ -542,17 +562,24 @@ img{
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 5rem;
+    padding: 0 2rem;
     margin: 10rem 0;
+  }
+  @include mediaMin($medium){
+    padding: 0 5rem;
   }
 
   &__info{
+
+
     @include mediaMin($small){
+      margin: 0 5rem;
+    }
+    @include mediaMin($medium){
       margin: 0 15rem;
     }
   }
   &__title{
-    font-size: 1.5rem;
     margin-bottom: 1rem;
   }
   &__cards{
@@ -587,7 +614,7 @@ img{
 
     @for $i from 0 through 3{
       &:nth-child(#{$i}){
-        transform: translateY(($i * 1.5) + rem);
+        transform: translateY(($i * 2) + rem);
       }
     } 
     &:hover{
@@ -620,6 +647,10 @@ img{
     @extend %btn;
     font-size: 0.9rem;
 
+    @include mediaMin($small){
+      padding: 0.75rem 1.5rem;
+    }
+
     &:hover{
       background: #fff;
       border: 2px solid var(--primary-blue);
@@ -637,8 +668,11 @@ img{
   flex-direction: column;
 
   @include mediaMin($small){
-    max-width: 50%;
+    max-width: 75%;
     margin: 5rem auto;
+  }
+  @include mediaMin($medium){
+    max-width: 50%;
   }
 
   &__title{
@@ -651,6 +685,9 @@ img{
     @include mediaMin($small){
       margin: 2rem auto;
       max-width: 50%;
+    }
+    @include mediaMin($small){
+      max-width: 75%;
     }
   }
 
@@ -733,17 +770,23 @@ img{
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   padding: 2.5rem 1rem;
-
   &__title{
     color: #fff;
-    font-size: 1.5rem;
     margin: 1rem 0;
+
+    @include mediaMin($small){
+      max-width: 50%;
+    }
+    @include mediaMin($medium){
+      max-width: 25%;
+    }
   }
 
   &__description{
     letter-spacing: 5px;
-    font-size: 0.85rem;
     font-weight: $fw-bold;
   }
 
@@ -757,6 +800,52 @@ img{
       flex-direction: row;
       align-self: center;
     }
+
+    &.error{
+
+      .contact__box{
+        background: var(--primary-red);
+      }
+      .icon-error{
+        display: inline;
+      }
+      .msg-error{
+        display: block;
+      }
+    }
+  }
+
+  &__box{
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+
+
+    .icon-error{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 5%;
+      top: 25%;
+      background: url('../images/icon-error.svg');
+      z-index: 1;
+      display: none;
+    }
+
+    .msg-error{
+      display: none;
+      padding-top: 3px;
+      padding-left: 0.5rem;
+      font-size: 0.75rem;
+      text-align: left;
+      font-weight: $fw-bold;
+      font-style: italic;
+    }
+
+    
+
   }
   &__input{
     padding: 1rem;
@@ -774,17 +863,6 @@ img{
     &::placeholder{
       color: var(--grayish-blue);
     }
-  }
-
-  &__error{
-    background: var(--primary-red);
-    position: absolute;
-    bottom: -1rem;
-    left: 0;
-    display: flex;
-    padding-left: 1rem;
-    font-size: 0.75rem;
-    width: 59%;
   }
 
   &__btn{
@@ -868,13 +946,23 @@ img{
     display: flex;
 
     @include mediaMin($medium){
-      margin-left: auto;
-      margin-right: 5rem;
+      margin-right: 10rem;
     }
 
     > img{
       margin: 0 1rem;
       cursor: pointer;
     }
+  }
+}
+
+
+.attribution{
+  font-size: 0.9rem;
+  text-align: center;
+  background: rgb(28, 54, 94);
+
+  a{
+    color: hsl(209, 49%, 58%); 
   }
 }

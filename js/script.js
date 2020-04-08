@@ -41,3 +41,31 @@ tabsBtn.forEach(btn => {
     }
   });
 })
+
+// FORM
+const validateEmail = email => {
+  let reg_exp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return reg_exp.test(String(email).toLowerCase());
+}
+
+const validateForm = (form) => {
+  let msg = document.querySelector('.msg-error');
+  let error_icon = document.querySelector('.icon-error');
+  let input_email = form.querySelector('#email');
+
+  if(input_email.value == ''){
+    msg.innerHTML = 'Email address required';
+    form.classList.add('error');
+  } else if(!validateEmail(input_email.value)){
+    msg.innerHTML = 'Whoops, make sure it\'s an email';
+    form.classList.add('error');
+  }else{
+    form.classList.remove('error');
+  }
+}
+
+const form = document.getElementById('form');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  validateForm(form);
+});
