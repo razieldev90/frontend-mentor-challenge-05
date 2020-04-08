@@ -1,0 +1,120 @@
+.features{
+  text-align: center;
+  padding: 0 1.7rem;
+
+  &__description{
+    @include mediaMin($small){
+      margin: 2rem auto;
+      max-width: 50%;
+    }
+  }
+}
+
+.tabs{
+  
+  &__control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    
+    @include mediaMin($small){
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &::after{
+      content: '';
+      width: 90%;
+      background: #ddd;
+
+      @include mediaMin($small){
+        height: 1px;
+      }
+    }
+  }
+
+  &__btn{
+    text-decoration: none;
+    color: var(--grayish-blue);
+    padding: 1rem 0;
+    font-size: 1rem;
+    border-top: 1px solid #ddd;
+
+    &:last-child{
+      border-bottom: 1px solid #ddd;
+      @include mediaMin($small){
+        border: none;
+      }
+    }
+
+    @include mediaMin($small){
+      border: none;
+      padding: 1rem 3rem;
+    }
+    &:hover{
+      color: var(--dark-blue);
+
+    }
+    &.active{
+      color: var(--primary-red);
+      border-bottom: 4px solid var(--primary-red);
+    }
+  }
+
+  &__content{
+    display: none;
+    &.active{
+      display: flex;
+      flex-direction: column;
+
+      @include mediaMin($small){
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+
+  &__info{
+    animation: slideInRight 0.5s ease-in-out;
+
+    @include mediaMin($small){
+      text-align: right;
+      flex: 75%;
+    }
+
+    @include mediaMin($medium){
+      text-align: left;
+      flex: 50%;
+      margin-left: 5rem;
+      max-width: 50%;
+    }
+  }
+
+  &__img{
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+
+    &::after{
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: -10%;
+      left: -70%;
+      border-top-right-radius: 35%;
+      border-bottom-right-radius: 25%;
+      display: block;
+      background: var(--primary-blue);
+      height: 75%;
+      width: 130%;
+      animation: slideInLeft 0.5s linear;
+    }
+  }
+
+  &__title{
+    margin-top: 3rem;
+  }
+  &__cta{
+    @extend %btn;
+  }
+}

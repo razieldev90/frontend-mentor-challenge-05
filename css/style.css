@@ -136,6 +136,15 @@ img {
   padding: 0 2rem;
 }
 
+.attribution {
+  font-size: 0.8rem;
+  text-align: center;
+  background: #1c365e;
+}
+.attribution a {
+  color: #5f96c8;
+}
+
 .nav {
   position: relative;
   display: flex;
@@ -352,7 +361,7 @@ img {
   opacity: 0;
   padding: 0.8rem;
   box-shadow: 0 0 10px var(--grayish-blue);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 @media all and (min-width: 43em) {
@@ -876,15 +885,6 @@ img {
 .footer__social > img {
   margin: 0 1rem;
   cursor: pointer;
-}
-
-.attribution {
-  font-size: 0.9rem;
-  text-align: center;
-  background: #1c365e;
-}
-.attribution a {
-  color: #5f96c8;
 }
 
 /*# sourceMappingURL=style.css.map */

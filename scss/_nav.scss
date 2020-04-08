@@ -1,0 +1,161 @@
+.nav{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem 2rem;
+  z-index: 1;
+
+  &.show{
+    padding: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--dark-blue);
+    color: #fff;
+
+    & .nav__bar{
+      display: block;
+      order: 3;
+      margin-top: 3rem;
+      width: 100%;
+    }
+    
+    & .nav__item{
+      &:hover::after{
+        transform: scaleX(0);
+      }
+    }
+
+    & .nav__link{
+      margin-top: 1rem;
+      width: 100%;
+      font-size: 1.5rem;
+      border-top: 1px solid var(--grayish-blue);
+
+      &:hover{
+        color: #fff;
+      }
+
+      &--red{
+        background: var(--dark-blue);
+        border-color: #fff;
+        padding: 0.25rem 0;
+      }
+    }
+
+    & .nav__logo{
+      filter: invert(20%) brightness(150%) contrast(100%);
+      order: 1;
+    }
+
+    & .nav__toggle{
+      order: 2;
+      margin-left: auto;
+    }
+
+    & .nav__social{
+      border-top: none;
+      order: 4;
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+
+      > a{
+        margin: 0 1rem;
+      }
+    }
+  }
+  
+  @include mediaMin($small){
+    padding: 2rem;
+  }
+
+  &__logo{
+    display: flex;
+  }
+
+  &__bar{
+    list-style: none;
+    display: none;
+
+    @include mediaMin($small){
+      display: flex;
+    }
+
+  }
+
+  &__item{
+    padding: 0 1rem;
+
+    &:not(:last-of-type)::after{
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: var(--primary-red);;
+      transform: scaleX(0);
+      transition: transform 0.25s ease-in-out;
+    }
+
+    &:hover::after{
+      transform: scaleX(1);
+    }
+  }
+
+  &__link{
+    text-decoration: none;
+    color: var(--link-color);
+    transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+
+    &:hover{
+      color: var(--primary-red);
+    }
+
+    &--red{
+      padding: 0.5rem 2rem;
+      color: #fff;
+      background: var(--primary-red);
+      border: 1px solid var(--primary-red);
+      border-radius: 5px;
+
+      &:hover{
+        color: var(--primary-red);
+        background: #fff;
+      }
+    }
+  }
+
+  &__social{
+    display: none;
+  }
+
+  &__toggle{
+    width: 18px;
+    height: 15px;
+    background: url('../images/icon-hamburger.svg') no-repeat;
+    cursor: pointer;
+    z-index: 1;
+
+    @include mediaMin($small){
+      display: none;
+    }
+
+    &.active{
+      width: 16px;
+      background: url('../images/icon-close.svg') no-repeat;
+    }
+  }
+}

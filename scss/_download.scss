@@ -1,0 +1,103 @@
+.download{
+  display: flex;
+  flex-direction: column;
+  margin: 5rem 0;
+  text-align: center;
+  
+  @include mediaMin($small){
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+    margin: 10rem 0;
+  }
+  @include mediaMin($medium){
+    padding: 0 5rem;
+  }
+
+  &__info{
+
+    @include mediaMin($small){
+      margin: 0 5rem;
+    }
+    @include mediaMin($medium){
+      margin: 0 15rem;
+    }
+  }
+  &__title{
+    margin-bottom: 1rem;
+  }
+  &__cards{
+    display: flex;
+    flex-direction: column;
+
+    @include mediaMin($small){
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+}
+
+
+.card{
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 10px 10px #ccc;
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+  
+  @include mediaMin($small){
+    box-shadow: 0 0 0 var(--grayish-blue);
+    margin: 0 auto;
+
+
+
+    @for $i from 0 through 3{
+      &:nth-child(#{$i}){
+        transform: translateY(($i * 2) + rem);
+      }
+    } 
+    &:hover{
+      box-shadow: 0 15px 25px var(--grayish-blue);
+    }
+  }
+
+
+  &__header{
+    padding-top: 3rem;
+  }
+  &__title{
+    font-size: 1.25rem;
+    font-weight: $fw-bold;
+  }
+  &__description{
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  &__body{
+    padding: 1rem 0;
+  }
+  &__footer{
+    padding: 1rem 0;
+  }
+  &__divider{
+    align-self: stretch;
+  }
+  &__cta{
+    @extend %btn;
+    font-size: 0.9rem;
+
+    @include mediaMin($small){
+      padding: 0.75rem 1.5rem;
+    }
+
+    &:hover{
+      background: #fff;
+      border: 2px solid var(--primary-blue);
+      color: var(--primary-blue);
+    }
+  }
+}

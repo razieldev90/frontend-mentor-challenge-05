@@ -1,0 +1,66 @@
+.footer{
+  background: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+
+  @include mediaMin($medium){
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  &__logo{
+    filter: invert(20%) brightness(150%) contrast(100%);
+    @include mediaMin($medium){
+      margin-left: 15rem;
+    }
+  }
+  &__list{
+    list-style: none;
+    text-align: center;
+    margin: 1rem 0;
+
+    @include mediaMin($small){
+      display: flex;
+    }
+
+    @include mediaMin($medium){
+      display: flex;
+      margin-left: 3rem;
+      margin-right: auto;
+    }
+  }
+  &__item{
+    margin: 1rem 0;
+
+    @include mediaMin($small){
+      margin-left: 2rem;
+    }
+  }
+  &__link{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+
+    &:hover{
+      color: var(--primary-red);
+    }
+  }
+  &__social{
+    display: flex;
+
+    @include mediaMin($medium){
+      margin-right: 10rem;
+    }
+
+    > img{
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+  }
+}
